@@ -1,0 +1,88 @@
+\documentclass[12pt,twoside]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{microtype} %omitting bad boxes
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{enumitem, color, amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{colorlinks = true, linkcolor = black, citecolor = black}
+\pgfplotsset{compat=1.12}
+\usetikzlibrary{decorations.markings}
+
+\newcommand*{\COMMENTSBILL}{}%
+\ifdefined\COMMENTSBILL
+\newcommand{\commentbill}[1]{ {\color{red} #1}}% 
+\else
+\newcommand{\commentbill}[1]{}
+\fi 
+
+\newcommand*{\COMMENTSRAPISCAN}{}%
+\ifdefined\COMMENTSRAPISCAN
+\newcommand{\commentrapiscan}[1]{ {\color{blue} #1}}% 
+\else
+\newcommand{\commentrapiscan}[1]{}
+\fi 
+
+\title{Scatter tomography in threat detection \\ \vspace{0.1in} \small{EPSRC IAA 211 Lionheart Proof of Concept Scheme}}
+\author{Naeem Mustaq Desai}
+
+
+\begin{document}
+
+\maketitle
+
+Although the start date on paper for this project was 1st January, work regarding this project actually began by late January after my corrections for my PhD were completed. 
+Here one can find a summary of the work done in section \textit{Progress} and a mention of next weeks work can be found in the section \textit{Next steps}. Furthermore there are some queries which can be found in
+the \textit{Questions} section. If you want to make any suggestions macros have been added in the .tex file. The commands $\backslash$commentbill and $\backslash$commentrapiscan can be used by 
+\commentbill{Bill} and \commentrapiscan{Ed/Will (or anyone else)} respectively. Alternatively one may use any software they desire, e.g. Adobe.  
+
+\section*{Progress}
+
+\begin{itemize}
+ \item Initially started by reading Compton scattering tomography (CST) papers \cite{James2D,James3D} by James Webber.
+ \item Decided to use Geant4 \cite{Geant4Bib}, successfully installed it and learnt how to compile basic demos.
+ \item Understanding basics of Monte Carlo particle transport (would be nice to get this running on MATLAB too).
+ \item Learnt about generating x-rays and the processes involved when coming in contact with matter (Compton/Rayleigh/Bragg/Photoelectric). Also pair production but do not know what that is.
+ \item Built a basic Geant4 application : firing photons with monoenergetic energy through a Carbon solid with scattering yet to be added.
+ \item Still trying to understand how to implement the scattering processes and a scoring volume. 
+ \item Use the info from scoring volume to plot a histogram - just managed to install ROOT \cite{Root}.
+ \item Example B4 in Geant4 manual plots a histogram using ROOT.
+\end{itemize}
+
+\section*{Questions}
+
+\begin{itemize}
+ \item How effective are the energy sensitive detectors - how near/far should they be positioned?
+ \item How do we generate a spectrum of source (polyenergetic energy) and what would be a good test target to simulate?
+ \item What is the proposed geometry in mind?
+\end{itemize}
+
+\section*{Next steps}
+
+\begin{itemize}
+ \item Still a novice at Geant4 so need to learn - have contacted few people in Manchester.
+ \item Setup a scoring volume and implement this for monoenergetic photons to give us a histogram of the counts.
+ \item Learn how to use G4Track and G4Step objects.
+ \item Locate and learn how to implement scattering processes with cuts to enable switching on/off of relevant scattering processes.
+ \item In this manner should have a working Geant4 code for the monoenergetic case.
+ \item Experiment with the positioning of the source and detectors (change to see effect).
+ \item And any other suggestions!
+\end{itemize}
+
+\bibliography{report}
+\bibliographystyle{plain}
+
+\end{document}
